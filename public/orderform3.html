@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Tsource</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>T-source Order Form</h1>
+      </div>
+    </div>
+    <div class="container row">
+      <div class="col-xs-12">
+        <div class="form">
+          <form action="" class="form" id="myForm">
+            <div class="control-group">
+
+First name:<br>
+  <input type="text" name="firstname" id="firstname"><br>
+  Last name:<br>
+  <input type="text" name="lastname" id="lastname"><br>
+  Name on Jersey:<br>
+  <input type="text" name="nameonjersey" id="nameonjersey"><br>
+  Number on Jersey:<br>
+  <input type="text" name="numberonjersey" id="numberonjersey"><br>
+  Jersey Size:<br>
+   <select name="jerseysize">
+    <option value="XSmall">X-Small</option>
+    <option value="Small">Small</option>
+    <option value="Medium">Medium</option>
+    <option value="Large">Large</option>
+    <option value="X-Large">X-Large</option>
+  </select>
+  <br><br>
+
+
+            </div>
+            <div>
+              <form action="../game" method="post">
+              <input type="submit"  onclick="showAlert()" class="submit btn btn-primary"></>
+              <!-- <input type="submit"  onclick="swal('T-Source', 'Thank you for submitting!', 'success');" class="submit btn btn-primary"></> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+          <script>
+          function showAlert() { 
+            swal({
+                  title: "T-Source",
+                  text: "Thank you for submitting",
+                  icon: "success",
+                  button: {
+                      text: "Aww yiss!",
+                    },
+                  }).then(()=>{document.getElementById("myForm").reset();})
+                  };
+
+          </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script>
+    $.fn.getFormData = function() {
+      var fields = this.find('[name]');
+      var result = {};
+      $.each(fields, function (i, el) {
+        result[el.name] = el.value;
+      });
+      return result;
+    };
+      var config = {
+        apiKey: "AIzaSyB4j2Zu5u4-clQSb37iuHCUwdtCG9TCQBM",
+        authDomain: "t-source.firebaseapp.com",
+        databaseURL: "https://t-source.firebaseio.com",
+        storageBucket: "t-source.appspot.com",
+      };
+      var fb = firebase.initializeApp(config);
+      var user_id;
+      $('.submit').on('click', function (e) {
+        e.preventDefault();
+        var updates = {};
+        user_id = user_id ? user_id : fb.database().ref().child('user-data').push().key;
+        updates[user_id] = $('form').getFormData();
+        fb.database().ref().child('user-data').update(updates);
+      });
+    </script>
+  </body>
+</html>

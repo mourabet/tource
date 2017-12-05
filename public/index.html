@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="band.css">
+
+</head>
+<body>
+
+  
+    <div class="navbar-collapse collapse inverse" id="navbar-header">
+        <div class="container-fluid">
+            <div class="about">
+                <h4>About</h4>
+                <p class="text-muted">T-source is a SAAS product that will help small custom apparel shops attract more customers through a better user interface while simultaneously optimizing their production process.</p>
+            </div>
+            <div class="social">
+                <h4>Order Form</h4>
+                <ul class="list-unstyled">
+                    <h3><p><a href="localhost:3000/static/readdata.html">See results</a></p></h3>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-static-top navbar-dark bg-inverse">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
+            &#9776;
+            </button>
+            <a href="#" class="navbar-brand">T-Source</a>
+        </div>
+    </div>
+
+    <section class="jumbotron text-xs-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">T-Source</h1>
+            <p class="lead text-muted">The New way to order custom apparel</p>
+            <div class="form-group">
+  <label for="comment">please insert emails followed by ";" after each one:</label>
+     
+     <form action="../game" method="post">
+                    <input type="text" name="name" rows="5"/><br>
+                    <input type="submit" />
+    </form>
+  <!-- <textarea class="form-control" rows="5" id="comment"></textarea>
+<button class="submit btn btn-primary">Submit</button> -->
+<!--   <a href="#" class="btn btn-info">Submit</a> -->
+            </div>
+        </div>
+    </section>
+
+   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB4j2Zu5u4-clQSb37iuHCUwdtCG9TCQBM",
+    authDomain: "t-source.firebaseapp.com",
+    databaseURL: "https://t-source.firebaseio.com",
+    projectId: "t-source",
+    storageBucket: "t-source.appspot.com",
+    messagingSenderId: "140071626968"
+  };
+  firebase.initializeApp(config);
+</script>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
